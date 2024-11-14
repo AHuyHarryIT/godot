@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  web:
+    image: node:14
+    working_dir: /app
+    volumes:
+      - .:/app
+    ports:
+      - "8081:8000"
+    command: npx local-web-server --https --cors.embedder-policy "require-corp" --cors.opener-policy "same-origin" --directory "."
